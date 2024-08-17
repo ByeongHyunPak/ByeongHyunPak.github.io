@@ -80,13 +80,13 @@
             
             <!-- TQDM -->
             <tr>
-              <td style="padding: 0px; padding-left: 20px; width:30%; vertical-align:middle; border: 0px solid black;" onmouseout="tqdm_stop()" onmouseover="tqdm_start()">
+              <!-- <td style="padding: 0px; padding-left: 20px; width:30%; vertical-align:middle; border: 0px solid black;" onmouseout="tqdm_stop()" onmouseover="tqdm_start()">
                 <div class="one">
                   <div class="two" id='tqdm_video'><video  width=100% height="100%" muted autoplay loop>
-                  <source src="images/tqdm.mp4" type="video/mp4">
+                  <source src="images/tqdm/tqdm-demo-cut.mov" type="video/mp4">
                   Your browser does not support the video tag.
                   </video></div>
-                  <img id='tqdm_image' src='images/tqdm.png' width=100% height="100%">
+                  <img id='tqdm_image' src='images/tqdm/tqdm.png' width=100% height="100%">
                 </div>
                 <script type="text/javascript">
                   function tqdm_start() {
@@ -100,6 +100,13 @@
                   }
                   tqdm_stop()
                 </script>
+              </td> -->
+              <td style="padding: 0px; padding-left: 20px; width:30%; vertical-align:middle; border: 0px solid black;" onmouseout="tqdm_stop()" onmouseover="tqdm_start()">
+                <div class="one">
+                  <video  width=100% height="100%" muted autoplay loop>
+                    <source src="images/tqdm/tqdm-demo-cut.mov" type="video/mp4">
+                  </video>
+                </div>
               </td>
               <td style="padding:20px;width:75%;vertical-align:middle">
                 <span class="papertitle">Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</span>
@@ -110,7 +117,7 @@
                 <a href="https://scholar.google.com/citations?user=_5Scn8YAAAAJ">Dae-hwan Kim</a>,
                 <a href="https://scholar.google.com/citations?user=Zy7Sz5UAAAAJ">Hoseong Kim</a>
                 <br>
-                <em>ECCV</em>, 2024
+                ECCV, 2024
                 <br>
                 <a href="https://byeonghyunpak.github.io/tqdm/">project page</a>
                 /
@@ -125,27 +132,10 @@
 
             <!-- BTC -->
             <tr>
-              <td style="padding: 0px; padding-left: 20px; width:30%; vertical-align:middle; border: 0px solid black;" onmouseout="btc_stop()" onmouseover="btc_start()">
-                <div class="one">
-                  <div class="two" id='btc_video'><video  width=100% height="100%" muted autoplay loop>
-                  <source src="images/tqdm.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video></div>
-                  <img id='btc_image' src='images/btc.png' width=100% height="100%">
-                </div>
-                <script type="text/javascript">
-                  function btc_start() {
-                    document.getElementById('btc_image').style.opacity = "0";
-                    document.getElementById('btc_video').style.opacity = "1";
-                  }
-
-                  function btc_stop() {
-                    document.getElementById('btc_image').style.opacity = "1";
-                    document.getElementById('btc_video').style.opacity = "0";
-                  }
-                  btc_stop()
-                </script>
+              <td style="padding: 0px; padding-left: 20px; width:30%; vertical-align:middle; border: 0px solid black;">
+                <img src="images/btc/output-demo.gif" width="100%" height="100%">
               </td>
+
               <td style="padding:20px;width:75%;vertical-align:middle">
                 <span class="papertitle">B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution</span>
                 <br>
@@ -153,14 +143,14 @@
                 <a href="https://scholar.google.com/citations?user=O91nuqIAAAAJ">Jaewon Lee*</a>,
                 <a href="https://scholar.google.com/citations?user=aLYNnyoAAAAJ">Kyong Hwan Jin</a>
                 <br>
-                <em>CVPR</em>, 2023 <font color="red"><strong>(Highlight)</strong></font>
+                CVPR, 2023 <font color="red"><strong>(Highlight)</strong></font>
                 <br>
                 <a href="https://byeonghyunpak.github.io/btc/">project page</a>
                 /
                 <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf">paper</a>
                 <p style="text-align: left;">
                   We proposed an implicit neural representation using 2D B-splines for high-quality screen content image (SCI) super-resolution. 
-                  Our method effectively reconstructs the unique edges and textures of SCIs, minimizing information distortion and artifacts.
+                  Our method aims to reconstruct the unique edges and textures of SCIs, minimizing information distortion and artifacts.
                 </p>
               </td>
             </tr>
