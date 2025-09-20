@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {
   Github,
-  Linkedin,
+  // Linkedin,
   Mail,
   Twitter,
   ArrowUpRight,
