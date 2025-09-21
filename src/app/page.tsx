@@ -11,6 +11,8 @@ import { experienceData } from "@/data/experience";
 import { PortfolioEntry } from "@/components/portfolio-entry";
 import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
+import { OngoingEntry } from "@/components/ongoing-entry";
+import { OngoingData } from "@/data/ongoing";
 
 export default function Home() {
   return (
@@ -100,6 +102,26 @@ export default function Home() {
                             <div key={index}>
                               <PublicationEntry publication={publication} />
                               {index < publicationData.length - 1 && (
+                                <div className="h-px bg-zinc-200 my-8" />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    )
+                  );
+                case Section.Ongoing:
+                  return (
+                    OngoingData.length > 0 && (
+                      <section key={sectionName}>
+                        <h2 className="font-serif text-xl mb-6 tracking-wide font-bold uppercase border-b border-zinc-200 dark:border-zinc-800">
+                          Ongoing Projects
+                        </h2>
+                        <div className="space-y-6">
+                          {OngoingData.map((ongoing, index) => (
+                            <div key={index}>
+                              <OngoingEntry ongoing={ongoing} />
+                              {index < OngoingData.length - 1 && (
                                 <div className="h-px bg-zinc-200 my-8" />
                               )}
                             </div>
