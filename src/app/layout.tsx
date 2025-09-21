@@ -25,13 +25,40 @@ const ptSerif = PT_Serif({
   weight: ["400", "700"],
 });
 
+// app/layout.tsx
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byeonghyunpak.github.io/";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: customMetadata.title || aboutMe.name,
   description: customMetadata.description || aboutMe.description,
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/male-technologist.png", sizes: "any" },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    title: customMetadata.title || aboutMe.name,
+    description: customMetadata.description || aboutMe.description,
+    images: [
+      {
+        url: "/images/me.jpeg",
+        width: 374,
+        height: 267,
+        alt: `${aboutMe.name} – preview`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: customMetadata.title || aboutMe.name,
+    description: customMetadata.description || aboutMe.description,
+    images: ["/images/me.jpeg"],
   },
 };
+
 
 export default function RootLayout({
   children,
