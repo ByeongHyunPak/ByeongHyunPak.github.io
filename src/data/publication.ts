@@ -29,7 +29,7 @@ export const publicationData: Publication[] = [
     conference: "NeurIPS",
     title: "Tortoise and Hare Guidance: Accelerating Diffusion Model Inference with Multirate Integration",
     authors: "Yunghee Lee, Byeonghyun Pak, Junwha Hong, Hoseong Kim",
-    // paperUrl: "<paper_url>",
+    paperUrl: "/thg_underreview.pdf",
     // codeUrl: "<code_url>",
     // pageUrl: "<page_url>",
     // tldr: "We propose a multirate integration method that accelerates diffusion model inference.",
