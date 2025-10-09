@@ -14,7 +14,7 @@ export const OngoingData: Ongoing[] = [
     imageUrl: "/images/mvtracker.gif",
   },
   {
-    title: "Anonymous Submission",
+    title: "Title Anonymized for Double-Blind Review",
     state: "Submitted to ICLR 2026",
     tldr: "We propose a image-text representation learning method that enables fine-grained multimodal understanding without extra annotations.",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu"
