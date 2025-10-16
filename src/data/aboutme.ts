@@ -66,36 +66,72 @@ export const aboutMe: AboutMe = {
     and a First Lieutenant in the <a href='https://www.army.mil.kr/english/index..do'>Republic of Korea Army</a>.\
     I received my B.S. from <a href='https://www.dgist.ac.kr/'>DGIST</a>'s Interdisciplinary Program, concentrating in Computer Science & Engineering. \
     ",
-  researchInterests:  
-    "\
-    <div style='margin-bottom: 0.5rem;'>\
-      My research goal is to develop robots with human-level versatility that can \
-      (1) generalize across diverse tasks and environments, \
-      (2) adapt to unseen domains via physics-aware reasoning, and \
-      (3) deploy in dynamic, real-world settings.\
-    </div>\
-    <div style='margin-bottom: 0.5rem;'>\
-      To this end, my research focuses on three core areas:\
-    </div>\
-    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-        • <strong>Vision–Language Representations (ECCV 2024)</strong>\
-    </div>\
-    <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        for open-world semantics and domain generalization.\
-    </div>\
-    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-      • <strong>Neural Scene Dynamics (ongoing)</strong>\
-    </div>\
-    <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        for learning physics-aware policies.\
-    </div>\
-    <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-      • <strong>Implicit Neural Representations (CVPR 2023)</strong>\
-    </div>\
-    <div style='margin-left: 0.6rem; margin-bottom: 0.5rem;'>\
-        for continuous scene representations from sensor observations.\
-    </div>\
-        ",
+  // researchInterests:  
+  //   "\
+  //   <div style='margin-bottom: 0.5rem;'>\
+  //     My research goal is to develop robots with human-level versatility that can \
+  //     (1) generalize across diverse tasks and environments, \
+  //     (2) adapt to unseen domains via physics-aware reasoning, and \
+  //     (3) deploy in dynamic, real-world settings.\
+  //   </div>\
+  //   <div style='margin-bottom: 0.5rem;'>\
+  //     To this end, my research focuses on three core areas:\
+  //   </div>\
+  //   <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+  //       • <strong>Vision–Language Representations (ECCV 2024)</strong>\
+  //   </div>\
+  //   <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+  //       for open-world semantics and domain generalization.\
+  //   </div>\
+  //   <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+  //     • <strong>Neural Scene Dynamics (ongoing)</strong>\
+  //   </div>\
+  //   <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+  //       for learning physics-aware policies.\
+  //   </div>\
+  //   <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+  //     • <strong>Implicit Neural Representations (CVPR 2023)</strong>\
+  //   </div>\
+  //   <div style='margin-left: 0.6rem; margin-bottom: 0.5rem;'>\
+  //       for continuous scene representations from sensor observations.\
+  //   </div>\
+  //       ",
+    researchInterests:  
+      "\
+      <div style='margin-bottom: 0.5rem;'>\
+      My research lies at the intersection of computer vision and robot learning, \
+      aiming to enable agents to generalize to novel scenarios and execute long-horizon tasks. \
+      I am currently developing a unified representation that integrates dynamic 3D geometry and open-world semantics. \
+      It serves as a persistent working memory for policy learning. \
+      </div>\
+      \
+      <div style='margin-bottom: 0.5rem;'>\
+        To this end, I focus on three core components:\
+      </div>\
+      \
+      <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+        <strong>1. Spatio-Temporal Scene Modeling (Ongoing)</strong>\
+      </div>\
+      <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+        : Modeling scene dynamics for prediction and long-horizon planning. \
+      </div>\
+      \
+      <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+        <strong>2. Vision–Language Representations (ECCV`24)</strong>\
+      </div>\
+      <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+        : Learning open-world semantics that generalize to novel scenarios and tasks. \
+      </div>\
+      \
+      <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
+        <strong>3. Implicit Neural Representations (CVPR`23)</strong>\
+      </div>\
+      <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
+        : Reconstructing continuous scene representations from sensor data. \
+      </div>\
+      <div style='margin-left: 0.6rem; margin-bottom: 0.5rem;'>\
+      </div>\
+          ",
     
   email: "byeonghyun.pak@gmail.com",
   imageUrl: "/images/me_v3_2.png",
