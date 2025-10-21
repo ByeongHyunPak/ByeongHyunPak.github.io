@@ -99,35 +99,35 @@ export const aboutMe: AboutMe = {
     researchInterests:  
       "\
       <div style='margin-bottom: 0.5rem;'>\
-      My research lies at the intersection of computer vision and robot learning, \
+      My research lies at the intersection of computer vision and robotics, \
       aiming to enable agents to generalize to novel scenarios and execute long-horizon tasks. \
-      I am currently developing a unified representation that integrates dynamic 3D geometry and open-world semantics. \
-      It serves as a persistent working memory for policy learning. \
+      I am currently developing unified representations that integrate dynamic 3D geometry with open-world semantics. \
+      These representations are designed to serve as both predictive world models and spatial memory for policy learning. \
       </div>\
       \
       <div style='margin-bottom: 0.5rem;'>\
-        To this end, I focus on three core components:\
+        My research encompasses three key areas:\
       </div>\
       \
       <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
         <strong>1. Spatio-Temporal Scene Modeling (Ongoing)</strong>\
       </div>\
       <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        : Modeling scene dynamics for prediction and long-horizon planning. \
+        : Modeling scene dynamics from online observations \
       </div>\
       \
       <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
         <strong>2. Vision–Language Representations (ECCV`24)</strong>\
       </div>\
       <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        : Learning open-world semantics that generalize to novel scenarios and tasks. \
+        : Learning open-world semantics that generalize to novel scenarios \
       </div>\
       \
       <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
         <strong>3. Implicit Neural Representations (CVPR`23)</strong>\
       </div>\
       <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
-        : Reconstructing continuous scene representations from sensor data. \
+        : Reconstructing continuous scene representations from sensor data \
       </div>\
       <div style='margin-left: 0.6rem; margin-bottom: 0.5rem;'>\
       </div>\
