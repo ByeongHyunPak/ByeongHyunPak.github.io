@@ -16,7 +16,7 @@ export const educationData: Education[] = [
   //   advisor: "Prof. Sarah Johnson",
   // },
   {
-    date: "Mar 2019 – Feb 2023",
+    date: "Feb 2019 – Feb 2023",
     institution: "Daegu Gyeongbuk Institute of Science and Technology (DGIST)",
     degree: "B.S. in Engineering (Interdisciplinary Program)",
     // advisor: "Prof. Kyong Hwan Jin",
