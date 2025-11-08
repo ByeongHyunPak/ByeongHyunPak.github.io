@@ -33,7 +33,7 @@ export const publicationData: Publication[] = [
     codeUrl: "https://github.com/Tortoise-and-Hare-Guidance/THG",
     pageUrl: "https://yhlee-add.github.io/THG/",
     // tldr: "We propose a multirate integration method that accelerates diffusion model inference.",
-    imageUrl: "/images/thg.gif",
+    imageUrl: "/images/thg_v2.gif",
   },
   {
     year: "2024",
