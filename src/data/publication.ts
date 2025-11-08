@@ -31,7 +31,7 @@ export const publicationData: Publication[] = [
     authors: "Yunghee Lee, Byeonghyun Pak, Junwha Hong, Hoseong Kim",
     paperUrl: "https://openreview.net/pdf?id=3cYcUmcDhU",
     codeUrl: "https://github.com/Tortoise-and-Hare-Guidance/THG",
-    // pageUrl: "<page_url>",
+    pageUrl: "https://yhlee-add.github.io/THG/",
     // tldr: "We propose a multirate integration method that accelerates diffusion model inference.",
     imageUrl: "/images/thg.gif",
   },
