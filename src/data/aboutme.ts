@@ -102,7 +102,6 @@ export const aboutMe: AboutMe = {
       My research lies at the intersection of computer vision and robotics, \
       aiming to enable agents to generalize to novel scenarios and execute long-horizon tasks. \
       I am currently developing unified representations that integrate dynamic 3D geometry with open-world semantics. \
-      These representations are designed to serve as both predictive world models and spatial memory for policy learning. \
       </div>\
       \
       <div style='margin-bottom: 0.5rem;'>\
