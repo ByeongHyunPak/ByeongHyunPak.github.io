@@ -82,14 +82,31 @@ function ZoomableImage({
               setOpen(false);
             }}
           >
-            <Image
-              src={src}
-              alt={alt}
-              width={1600}
-              height={1000}
-              className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl transition-all duration-300"
-              priority
-            />
+            {open && (
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label="Expanded image viewer"
+                className="fixed inset-0 z-[100] flex items-center justify-center cursor-zoom-out"
+                onClick={() => setOpen(false)}
+              >
+                <div
+                  className="relative mx-4 max-w-[90vw] max-h-[90vh] w-full h-full"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpen(false);
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    className="object-contain rounded-xl shadow-2xl transition-all duration-300"
+                    priority
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
