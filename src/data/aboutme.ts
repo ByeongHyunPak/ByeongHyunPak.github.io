@@ -109,14 +109,14 @@ export const aboutMe: AboutMe = {
       </div>\
       \
       <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-        <strong>1. Spatio-Temporal Scene Modeling (Ongoing)</strong>\
+        <strong>1. Spatiotemporal Scene Representations (Ongoing)</strong>\
       </div>\
       <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
         : Modeling scene dynamics from online observations \
       </div>\
       \
       <div style='margin-left: 0.3rem; margin-bottom: 0.1rem;'>\
-        <strong>2. Vision–Language Representations (ECCV`24)</strong>\
+        <strong>2. Vision-Language Representations (ECCV`24)</strong>\
       </div>\
       <div style='margin-left: 0.6rem; margin-bottom: 0.3rem;'>\
         : Learning open-world semantics that generalize to novel scenarios \
