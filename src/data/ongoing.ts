@@ -14,9 +14,9 @@ export const OngoingData: Ongoing[] = [
   //   imageUrl: "/images/mvtracker.gif",
   // },
   {
-    title: "Title Anonymized for Double-Blind Review",
-    state: "Submitted to ICLR 2026",
-    tldr: "We propose a image-text representation learning method that enables fine-grained multimodal understanding without extra annotations.",
+    title: "Aligning Forest and Trees in Images and Long Captions for Cross-Domain Grounding",
+    state: "In Submission, 2025",
+    tldr: "We propose a hierarchical vision-language representation learning method that enables fine-grained multimodal understanding without extra annotations.",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
     imageUrl: "/images/FCAST.gif"
   },
