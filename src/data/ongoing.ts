@@ -15,7 +15,7 @@ export const OngoingData: Ongoing[] = [
   // },
   {
     title: "Aligning Forest and Trees in Images and Long Captions for Cross-Domain Grounding",
-    state: "In Submission, 2025",
+    state: "Under review, 2025",
     tldr: "We propose a hierarchical vision-language representation learning method that enables fine-grained multimodal understanding without extra annotations.",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
     imageUrl: "/images/FCAST.gif"
