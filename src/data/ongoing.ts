@@ -7,16 +7,16 @@ export interface Ongoing {
 }
 
 export const OngoingData: Ongoing[] = [
-  // {
-  //   title: "Dynamics-Aware Policy Learning",
-  //   state: "Active",
-  //   tldr: "We learn policies that model the underlying dynamics of an environment to forecast short-horizon. This look-ahead enables anticipatory behavior such as intercepting moving targets.",
-  //   imageUrl: "/images/mvtracker.gif",
-  // },
+  {
+    title: "4D Neural Implicit Mapping",
+    state: "Active",
+    tldr: "We build dense representations to jointly encode geometric structure and high-level semantics of dynamic environments.",
+    imageUrl: "/images/4d_map_v0.gif",
+  },
   {
     title: "Aligning Forest and Trees in Images and Long Captions for Cross-Domain Grounding",
-    state: "Under review, 2025",
-    tldr: "We propose a hierarchical vision-language representation learning method that enables fine-grained multimodal understanding without extra annotations.",
+    state: "Under review (2025)",
+    tldr: "We propose a hierarchical vision-language model that enables fine-grained multimodal understanding without extra annotations.",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
     imageUrl: "/images/FCAST.gif"
   },
