@@ -7,13 +7,13 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
   return (
     <div className="mb-6">
       {/* First line: title left, date right */}
-      <div className="flex justify-between items-baseline">
+      {/* <div className="flex justify-between items-baseline">
         <h3 className="text-lg font-serif text-zinc-900">{experience.title}</h3>
         <span className="text-sm text-zinc-500">{formattedDate}</span>
-      </div>
+      </div> */}
 
       {/* Company */}
-      <p className="text-sm text-zinc-600 mb-1">
+      {/* <p className="text-sm text-zinc-600 mb-1">
         {experience.companyUrl ? (
           <a
             href={experience.companyUrl}
@@ -26,7 +26,30 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
         ) : (
           experience.company
         )}
-      </p>
+      </p> */}
+
+      {/* First line: company left, date right */}
+      <div className="flex justify-between items-baseline">
+        <h3 className="text-lg font-serif text-zinc-900">
+          {experience.companyUrl ? (
+            <a
+              href={experience.companyUrl}
+              className="hover:text-zinc-800 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {experience.company}
+            </a>
+          ) : (
+            experience.company
+          )}
+        </h3>
+        <span className="text-sm text-zinc-500">{formattedDate}</span>
+      </div>
+
+      {/* Title */}
+      <p className="text-sm text-zinc-600 mb-1">{experience.title}</p>
+
 
       {/* Manager & Advisor inline */}
       {(experience.manager || experience.advisor) && (

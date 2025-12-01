@@ -18,7 +18,7 @@ export const educationData: Education[] = [
   {
     date: "Feb 2019 – Feb 2023",
     institution: "Daegu Gyeongbuk Institute of Science and Technology (DGIST)",
-    degree: "B.S. in Engineering (Interdisciplinary Program)",
+    degree: "B.S. in Engineering, School of Undergraduate Studies",
     // advisor: "Prof. Kyong Hwan Jin",
     // thesis: "Algorithmic Approaches to Causal Discovery",
     // Optional links to thesis
@@ -27,6 +27,6 @@ export const educationData: Education[] = [
   {
     date: "Jul 2019 – Aug 2019",
     institution: "University of California, Berkeley (UCB)",
-    degree: "Visiting Student (Freshman Global Leadership Program)",
+    degree: "Summer Visiting Student",
   },
 ];
