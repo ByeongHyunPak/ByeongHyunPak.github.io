@@ -68,7 +68,7 @@ export const aboutMe: AboutMe = {
           ",
     
   email: "byeonghyun.pak@gmail.com",
-  imageUrl: "/images/me_v3_2.png",
+  imageUrl: "/images/me_v2.png",
   googleScholarUrl: "https://scholar.google.com/citations?user=2dyH0ZQAAAAJ",
   githubUsername: "ByeongHyunPak",
   linkedinUsername: "byeonghyun-pak",
