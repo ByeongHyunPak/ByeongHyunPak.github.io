@@ -11,7 +11,7 @@ export const OngoingData: Ongoing[] = [
     title: "4D Neural Implicit Mapping",
     state: "Active",
     tldr: "We build dense representations to jointly encode geometric structure and high-level semantics of dynamic environments.",
-    imageUrl: "/images/4d_map_v0.gif",
+    imageUrl: "/images/4d_map_v2.gif",
   },
   {
     title: "Aligning Forest and Trees in Images and Long Captions for Cross-Domain Grounding",
