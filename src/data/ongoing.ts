@@ -14,8 +14,8 @@ export const OngoingData: Ongoing[] = [
     imageUrl: "/images/4d_map_v2.gif",
   },
   {
-    title: "Aligning Forest and Trees in Images and Long Captions for Cross-Domain Grounding",
-    state: "Under review (2025)",
+    title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
+    state: "In submission",
     tldr: "We propose a hierarchical vision-language model that enables fine-grained multimodal understanding without extra annotations.",
     authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
     imageUrl: "/images/FCAST.gif"
