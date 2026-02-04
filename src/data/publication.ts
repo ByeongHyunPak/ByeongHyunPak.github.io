@@ -25,6 +25,17 @@ export const publicationData: Publication[] = [
   //   // imageUrl: "/images/tortoise_hare.gif",
   // },
   {
+    year: "(2026)",
+    conference: "Preprint",
+    title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
+    authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
+    paperUrl: "https://arxiv.org/pdf/2602.02977",
+    // codeUrl: "https://github.com/Tortoise-and-Hare-Guidance/THG",
+    // pageUrl: "https://yhlee-add.github.io/THG/",
+    // tldr: "We propose a multirate integration method that accelerates diffusion model inference.",
+    imageUrl: "/images/FCAST.gif",
+  },
+  {
     year: "2025",
     conference: "NeurIPS",
     title: "Tortoise and Hare Guidance: Accelerating Diffusion Model Inference with Multirate Integration",
