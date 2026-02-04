@@ -13,13 +13,13 @@ export const OngoingData: Ongoing[] = [
     tldr: "We build dense representations to jointly encode geometric structure and high-level semantics of dynamic environments.",
     imageUrl: "/images/4d_map_v2.gif",
   },
-  {
-    title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
-    state: "In submission",
-    tldr: "We propose a hierarchical vision-language model that enables fine-grained multimodal understanding without extra annotations.",
-    authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
-    imageUrl: "/images/FCAST.gif"
-  },
+  // {
+  //   title: "Aligning Forest and Trees in Images and Long Captions for Visually Grounded Understanding",
+  //   state: "In submission",
+  //   tldr: "We propose a hierarchical vision-language model that enables fine-grained multimodal understanding without extra annotations.",
+  //   authors: "Byeongju Woo, Zilin Wang, Byeonghyun Pak, Sangwoo Mo, Stella X. Yu",
+  //   imageUrl: "/images/FCAST.gif"
+  // },
   // {
   //   title: "Hierarchical Vision-Language Pre-training for Fine-grained Multimodal Understanding",
   //   state: "Pre-submission",
