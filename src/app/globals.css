@@ -1,27 +1,310 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
+/* Explicitly set dark mode to use class strategy */
+@variant dark (&:where(.dark, .dark *));
+
+/* Default to light theme colors - no system preference detection */
+:root,
+.light {
+  /* Light theme colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  
+  /* Brand colors - restrained academic palette */
+  --primary: #1a1a1a;
+  --primary-light: #4a4a4a;
+  --primary-dark: #0f0f10;
+  --accent: #b8431f;
+  --accent-light: #d8653b;
+  --accent-dark: #943318;
+  --link: #2d6aa0;
+  --link-hover: #245580;
+  --link-soft: #e8e8e7;
+  --rule: #e5e5e5;
+  --rule-soft: #efefef;
+  
+  /* Neutral colors */
+  --neutral-50: #f8f8f7;
+  --neutral-100: #f3f3f2;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #828282;
+  --neutral-600: #4a4a4a;
+  --neutral-700: #333333;
+  --neutral-800: #1c1c1d;
+  --neutral-900: #0f0f10;
+  
+  /* Semantic colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* Glass effect */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
 }
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-link-soft: var(--link-soft);
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
+  
+  /* Neutral palette */
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  
+  /* Semantic colors */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  
+  /* Glass effect */
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-shadow: var(--glass-shadow);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Iowan Old Style', Charter, Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+  
+  /* Letter spacing */
+  --letter-spacing-tighter: 0em;
+  --letter-spacing-tight: 0em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0em;
+  --letter-spacing-wider: 0em;
+  --letter-spacing-widest: 0em;
+  
+  /* Line heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+/* Use Source Han Serif for Chinese headings/title text via .font-serif */
+html:lang(zh),
+html[data-locale^="zh"] {
+  --font-serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", STSong, SimSun, serif;
+}
+
+/* Dark mode styles */
+.dark {
+  --background: #0f0f10;
+  --foreground: #ececec;
+  
+  /* Adjust colors for dark mode */
+  --primary: #ececec;
+  --primary-light: #bdbdbd;
+  --primary-dark: #ffffff;
+  --accent: #ec9069;
+  --accent-light: #f1a785;
+  --accent-dark: #d97950;
+  --link: #7eb4db;
+  --link-hover: #aed2ed;
+  --link-soft: #2a2a2b;
+  --rule: #2a2a2b;
+  --rule-soft: #232323;
+  
+  /* Dark mode glass effect */
+  --glass-bg: rgba(15, 23, 42, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  
+  /* Neutral colors for dark mode - properly inverted */
+  --neutral-50: #0f0f10;
+  --neutral-100: #1c1c1d;
+  --neutral-200: #232323;
+  --neutral-300: #2a2a2b;
+  --neutral-400: #888888;
+  --neutral-500: #bdbdbd;
+  --neutral-600: #ececec;
+  --neutral-700: #f5f5f5;
+  --neutral-800: #1c1c1d;
+  --neutral-900: #0f0f10;
+}
+
 
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: var(--source-serif-font), Georgia, serif;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: var(--line-height-normal);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Elements marked with serif class or font-serif will use Source Serif */
-.font-serif,
-.serif {
-  font-family: ui-serif, var(--font-pt-serif), var(--font-noto-serif), Georgia,
-    serif;
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 2.75rem;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 
-/* Elements marked with sans or font-sans will use Geist */
-.font-sans,
-.sans {
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+.profile-copy {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.block-section {
+  margin-top: 3rem;
+}
+
+.block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.block-head h2 {
+  margin: 0;
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .block-head h2 {
+    font-size: 1.65rem;
+  }
+}
+
+/* Typography utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Glass morphism utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-400);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: var(--neutral-800);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--neutral-600);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}
+
+/* Card background utility */
+.card-bg {
+  background-color: #ffffff;
+}
+
+.dark .card-bg {
+  background-color: #1e293b;
+  /* Soften card borders in dark mode only */
+  border-color: rgba(148, 163, 184, 0.24);
 }

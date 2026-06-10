@@ -1,0 +1,57 @@
+[site]
+title = "Byeonghyun Pak"
+description = "Personal academic website of Byeonghyun Pak."
+favicon = "/umd.png"
+last_updated = "Jun 9, 2026"
+
+[author]
+name = "Byeonghyun Pak"
+title = "PhD Student"
+institution = "University of Maryland"
+avatar = "/images/me_v2.png"
+
+[social]
+email = "bhpak@umd.edu"
+location = "Daejeon, Republic of Korea"
+location_url = "https://maps.app.goo.gl/UDcczVBM8Kp2APpm8"
+location_details = [
+  "Daejeon, Republic of Korea"
+]
+timezone = "Asia/Seoul"
+google_scholar = "https://scholar.google.com/citations?user=2dyH0ZQAAAAJ"
+github = "https://github.com/ByeongHyunPak"
+linkedin = "https://www.linkedin.com/in/byeonghyun-pak-172a9723a/"
+
+[features]
+enable_likes = false
+enable_one_page_mode = false
+
+[i18n]
+enabled = false
+locales = ["en"]
+default_locale = "en"
+mode = "fixed"
+fixed_locale = "en"
+persist = false
+switcher = false
+
+[i18n.labels]
+en = "English"
+
+[[navigation]]
+title = "About"
+type = "page"
+target = "about"
+href = "/"
+
+[[navigation]]
+title = "Publications"
+type = "page"
+target = "publications"
+href = "/publications"
+
+[[navigation]]
+title = "News"
+type = "page"
+target = "news"
+href = "/news"

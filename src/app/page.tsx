@@ -1,175 +1,165 @@
-import { EducationEntry } from "@/components/education-entry";
-import { educationData } from "@/data/education";
-import { PublicationEntry } from "@/components/publication-entry";
-import { publicationData } from "@/data/publication";
-import { ProfileSection } from "@/components/profile-section";
-import { aboutMe } from "@/data/aboutme";
-import { NewsEntry } from "@/components/news-entry";
-import { newsData } from "@/data/news";
-import { ExperienceEntry } from "@/components/experience-entry";
-import { experienceData } from "@/data/experience";
-import { PortfolioEntry } from "@/components/portfolio-entry";
-import { portfolioData } from "@/data/portfolio";
-import { sectionOrder, Section } from "@/data/section-order";
-import { OngoingEntry } from "@/components/ongoing-entry";
-import { OngoingData } from "@/data/ongoing";
+import { getConfig } from '@/lib/config';
+import { getMarkdownContent, getBibtexContent, getTomlContent, getPageConfig } from '@/lib/content';
+import { parseBibTeX } from '@/lib/bibtexParser';
+import HomePageClient, { type HomePageLocaleData } from '@/components/home/HomePageClient';
+import { Publication } from '@/types/publication';
+import { BasePageConfig, PublicationPageConfig, TextPageConfig, CardPageConfig, NewsPageConfig } from '@/types/page';
+import { getRuntimeI18nConfig } from '@/lib/i18n/config';
+
+interface SectionConfig {
+  id: string;
+  type: 'markdown' | 'publications' | 'list';
+  title?: string;
+  source?: string;
+  filter?: string;
+  limit?: number;
+  content?: string;
+  publications?: Publication[];
+  items?: NewsItem[];
+}
+
+interface NewsItem {
+  date: string;
+  content: string;
+}
+
+type PageData =
+  | { type: 'about'; id: string; sections: SectionConfig[] }
+  | { type: 'publication'; id: string; config: PublicationPageConfig; publications: Publication[] }
+  | { type: 'text'; id: string; config: TextPageConfig; content: string }
+  | { type: 'card'; id: string; config: CardPageConfig }
+  | { type: 'news'; id: string; config: NewsPageConfig };
+
+function processSections(sections: SectionConfig[], locale?: string): SectionConfig[] {
+  return sections.map((section: SectionConfig) => {
+    switch (section.type) {
+      case 'markdown':
+        return {
+          ...section,
+          content: section.source ? getMarkdownContent(section.source, locale) : '',
+        };
+      case 'publications': {
+        const bibtex = getBibtexContent('publications.bib', locale);
+        const allPubs = parseBibTeX(bibtex, locale);
+        const filteredPubs = section.filter === 'selected'
+          ? allPubs.filter((p) => p.selected)
+          : allPubs;
+        return {
+          ...section,
+          publications: filteredPubs.slice(0, section.limit || 5),
+        };
+      }
+      case 'list': {
+        const newsData = section.source ? getTomlContent<{ news: NewsItem[] }>(section.source, locale) : null;
+        return {
+          ...section,
+          items: newsData?.news || [],
+        };
+      }
+      default:
+        return section;
+    }
+  });
+}
+
+function loadPageDataForLocale(locale: string | undefined): HomePageLocaleData {
+  const localeConfig = getConfig(locale);
+  const enableOnePageMode = localeConfig.features.enable_one_page_mode;
+
+  const aboutConfig = getPageConfig<{ profile?: { research_interests?: string[] }; sections?: SectionConfig[] }>('about', locale);
+  const researchInterests = aboutConfig?.profile?.research_interests;
+
+  let pagesToShow: PageData[] = [];
+
+  if (enableOnePageMode) {
+    pagesToShow = localeConfig.navigation
+      .filter((item) => item.type === 'page')
+      .map((item) => {
+        const rawConfig = getPageConfig(item.target, locale);
+        if (!rawConfig) return null;
+
+        const pageConfig = rawConfig as BasePageConfig;
+
+        if (pageConfig.type === 'about' || 'sections' in (rawConfig as object)) {
+          return {
+            type: 'about',
+            id: item.target,
+            sections: processSections((rawConfig as { sections: SectionConfig[] }).sections || [], locale),
+          } as PageData;
+        }
+
+        if (pageConfig.type === 'publication') {
+          const pubConfig = pageConfig as PublicationPageConfig;
+          const bibtex = getBibtexContent(pubConfig.source, locale);
+          return {
+            type: 'publication',
+            id: item.target,
+            config: pubConfig,
+            publications: parseBibTeX(bibtex, locale),
+          } as PageData;
+        }
+
+        if (pageConfig.type === 'text') {
+          const textConfig = pageConfig as TextPageConfig;
+          return {
+            type: 'text',
+            id: item.target,
+            config: textConfig,
+            content: getMarkdownContent(textConfig.source, locale),
+          } as PageData;
+        }
+
+        if (pageConfig.type === 'card') {
+          return {
+            type: 'card',
+            id: item.target,
+            config: pageConfig as CardPageConfig,
+          } as PageData;
+        }
+
+        if (pageConfig.type === 'news') {
+          return {
+            type: 'news',
+            id: item.target,
+            config: pageConfig as NewsPageConfig,
+          } as PageData;
+        }
+
+        return null;
+      })
+      .filter((item): item is PageData => item !== null);
+  } else if (aboutConfig) {
+    pagesToShow = [{
+      type: 'about',
+      id: 'about',
+      sections: processSections(aboutConfig.sections || [], locale),
+    }];
+  }
+
+  return {
+    author: localeConfig.author,
+    social: localeConfig.social,
+    features: localeConfig.features,
+    enableOnePageMode,
+    researchInterests,
+    pagesToShow,
+  };
+}
 
 export default function Home() {
-  return (
-    // <div className="min-h-screen bg-[#FFFCF8]">
-      <div className="min-h-screen bg-[#FFFFFF]">
-      {/* Don't have a great call on whether max-w-screen-xl is better */}
-      {/* <div className="max-w-screen-lg mx-auto px-8 py-24"> */}
-      <div className="max-w-screen-lg mx-auto px-8 py-16">
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-1">
-          {/* Left Column - Fixed Info */}
-          <div className="col-span-12 md:col-span-4 space-y-12 mb-8 md:mb-0">
-            {/* Profile */}
-            <div className="md:sticky top-12 space-y-8">
-              <ProfileSection aboutMe={aboutMe} />
-            </div>
-          </div>
+  const baseConfig = getConfig();
+  const runtimeI18n = getRuntimeI18nConfig(baseConfig.i18n);
+  const targetLocales = runtimeI18n.enabled ? runtimeI18n.locales : [runtimeI18n.defaultLocale];
 
-          {/* Right Column - Scrolling Content */}
-          {/* <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-12"> */}
-            <div className="col-span-12 md:col-span-9 md:col-start-6 space-y-12">
-            {/* About section is typically first */}
-            {aboutMe.description && (
-              <section>
-                <p
-                  className="font-serif text-md leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600 mb-5"
-                  dangerouslySetInnerHTML={{ __html: aboutMe.description }}
-                />
-                {/* Research Interests - collapsible with <details> */}
-                {aboutMe.researchInterests && (
-                  <details className="mb-4">
-                    <summary className="cursor-pointer select-none font-serif text-md text-zinc-700 mb-1 tracking-wide font-bold uppercase">
-                      Research Interests
-                    </summary>
-                    <div className="mt-2 font-serif text-md leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: aboutMe.researchInterests }} />
-                  </details>
-                )}
-                
-              </section>
-            )}
+  const dataByLocale: Record<string, HomePageLocaleData> = {};
 
-            {/* Map through sectionOrder to render sections in correct order */}
-            {sectionOrder.map((sectionName) => {
-              switch (sectionName) {
-                case Section.News:
-                  return (
-                    newsData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-l mb-6 tracking-wide uppercase">
-                          News
-                        </h2>
-                        <div className="space-y-12">
-                          {newsData.map((news, index) => (
-                            <div key={index}>
-                              <NewsEntry news={news} />
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Education:
-                  return (
-                    educationData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-xl text-zinc-700 mb-4 tracking-wide font-bold uppercase border-b border-zinc-200 dark:border-zinc-800">
-                          Education
-                        </h2>
-                        <div className="space-y-6">
-                          {educationData.map((education, index) => (
-                            <EducationEntry key={index} education={education} />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Publication:
-                  return (
-                    publicationData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-xl mb-6 tracking-wide font-bold uppercase border-b border-zinc-200 dark:border-zinc-800">
-                          Publications
-                        </h2>
-                        <div className="space-y-6">
-                          {publicationData.map((publication, index) => (
-                            <div key={index}>
-                              <PublicationEntry publication={publication} />
-                              {index < publicationData.length - 1 && (
-                                <div className="h-px bg-zinc-200 my-8" />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Ongoing:
-                  return (
-                    OngoingData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-xl mb-6 tracking-wide font-bold uppercase border-b border-zinc-200 dark:border-zinc-800">
-                          Ongoing Projects
-                        </h2>
-                        <div className="space-y-6">
-                          {OngoingData.map((ongoing, index) => (
-                            <div key={index}>
-                              <OngoingEntry ongoing={ongoing} />
-                              {index < OngoingData.length - 1 && (
-                                <div className="h-px bg-zinc-200 my-8" />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Experience:
-                  return (
-                    experienceData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-xl mb-4 tracking-wide font-bold uppercase border-b border-zinc-200 dark:border-zinc-800">
-                          Experience
-                        </h2>
-                        <div className="space-y-4">
-                          {experienceData.map((experience, index) => (
-                            <ExperienceEntry
-                              key={index}
-                              experience={experience}
-                            />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Portfolio:
-                  return (
-                    portfolioData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-xl mb-6 tracking-wide uppercase">
-                          Portfolio
-                        </h2>
-                        <div className="space-y-12">
-                          {portfolioData.map((portfolio, index) => (
-                            <PortfolioEntry key={index} portfolio={portfolio} />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                default:
-                  return null;
-              }
-            })}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  for (const locale of targetLocales) {
+    dataByLocale[locale] = loadPageDataForLocale(locale);
+  }
+
+  if (!dataByLocale[runtimeI18n.defaultLocale]) {
+    dataByLocale[runtimeI18n.defaultLocale] = loadPageDataForLocale(undefined);
+  }
+
+  return <HomePageClient dataByLocale={dataByLocale} defaultLocale={runtimeI18n.defaultLocale} />;
 }

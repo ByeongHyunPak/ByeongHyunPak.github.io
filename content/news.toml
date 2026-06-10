@@ -1,0 +1,23 @@
+type = "news"
+title = "News"
+description = "Recent updates and research milestones."
+
+[[news]]
+date = "Jun 2026"
+content = 'I completed my three-year mandatory military service. Grateful for my time at ADD! 🥳'
+
+[[news]]
+date = "Jun 2026"
+content = 'Our \href{https://xingxingzuo.github.io/MM-SpatialAI/assets/papers/submission-33-4d-latent-mapping-for-mobile-manipulation-policy-learning.pdf}{paper} received the \textcolor{red}{Best Paper Award} at ICRA 2026 \href{https://xingxingzuo.github.io/MM-SpatialAI/}{Workshop on MM-SpatialAI}! 🎉'
+
+[[news]]
+date = "May 2026"
+content = 'One \href{https://xingxingzuo.github.io/MM-SpatialAI/assets/papers/submission-33-4d-latent-mapping-for-mobile-manipulation-policy-learning.pdf}{paper} was accepted to both ICRA 2026 \href{https://xingxingzuo.github.io/MM-SpatialAI/}{Workshop on MM-SpatialAI} and \href{https://www.dynsyslab.org/icra2026-workshop-on-semantics-for-reliable-robot-autonomy/}{Workshop on SRRA}.'
+
+[[news]]
+date = "May 2026"
+content = 'One \href{https://openreview.net/pdf?id=QDdHFImjpH}{paper} was accepted to ICML 2026 \href{https://sites.google.com/view/icml-ctb/home}{Workshop on CTB}.'
+
+[[news]]
+date = "Mar 2026"
+content = 'One \href{https://arxiv.org/pdf/2603.13904}{paper} was accepted to CVPR 2026 \href{https://pvuw.github.io/}{Workshop on PVUW}.'
