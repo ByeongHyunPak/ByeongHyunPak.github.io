@@ -1,7 +1,7 @@
 const tooltipTargetName = 'Byeonghyun';
 const tooltipText = 'pronounced "Byung-hyun"';
 const tooltipTargetClassName = 'group relative inline-flex cursor-help border-b border-dotted border-neutral-400 outline-none';
-const tooltipClassName = 'pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-max max-w-72 -translate-x-1/2 rounded-[4px] bg-neutral-900 px-2 py-1.5 text-xs font-normal leading-snug text-white opacity-0 shadow-sm transition-opacity group-hover:opacity-100 group-focus:opacity-100 dark:bg-neutral-100 dark:text-neutral-900';
+const tooltipClassName = 'pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-max max-w-72 -translate-x-1/2 rounded-[4px] bg-neutral-900 px-2 py-1.5 text-xs font-normal leading-snug text-white opacity-0 shadow-sm transition-opacity group-hover:opacity-100 group-focus:opacity-100 dark:bg-neutral-100 dark:text-neutral-700';
 
 type HastNode = {
     type?: string;
