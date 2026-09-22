@@ -14,6 +14,8 @@ import {
 import { Metadata } from 'next';
 import { getRuntimeI18nConfig } from '@/lib/i18n/config';
 
+export const dynamicParams = false;
+
 function loadDynamicPageData(slug: string, locale?: string): DynamicPageLocaleData | null {
   const pageConfig = getPageConfig(slug, locale) as BasePageConfig | null;
 

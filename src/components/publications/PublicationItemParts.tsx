@@ -38,11 +38,11 @@ export function PublicationPreview({
 
     return (
         <figure className={className}>
-            <div className="overflow-hidden rounded-[6px] border border-rule-soft bg-neutral-100 dark:bg-neutral-800">
+            <div className="overflow-hidden rounded-[6px] bg-transparent">
                 {isVideo ? (
                     <video
                         src={previewPath}
-                        className={imageClassName}
+                        className={`${imageClassName} bg-background contrast-[1.03]`}
                         autoPlay
                         loop
                         muted
@@ -54,7 +54,7 @@ export function PublicationPreview({
                     <img
                         src={previewPath}
                         alt={`${publication.title} demo`}
-                        className={imageClassName}
+                        className={`${imageClassName} bg-transparent`}
                     />
                 )}
             </div>
@@ -93,6 +93,21 @@ export function PublicationAuthors({ publication }: { publication: Publication }
     );
 }
 
+function WorkshopName({ name }: { name: string }) {
+    const match = name.match(/^((?:ICRA|ICML|CVPR) Workshop)(.*)$/);
+
+    if (!match) {
+        return <span className="italic">{name}</span>;
+    }
+
+    return (
+        <>
+            <strong className="font-bold text-primary">{match[1]}</strong>
+            <span className="italic">{match[2]}</span>
+        </>
+    );
+}
+
 export function PublicationVenue({ publication }: { publication: Publication }) {
     const venue = publication.journal || publication.conference;
     const venueAbbreviation = publication.venue || getVenueAbbreviation(venue);
@@ -116,7 +131,7 @@ export function PublicationVenue({ publication }: { publication: Publication }) 
             <div className={`${marginBottom} space-y-0.5 text-sm text-neutral-600 dark:text-neutral-500`}>
                 {venues.map((item, index) => (
                     <p key={`${publication.id}-venue-${index}`}>
-                        {item.name && <span className="italic">{item.name}</span>}
+                        {item.name && <WorkshopName name={item.name} />}
                         {item.abbreviation && (
                             <>
                                 {' ('}
@@ -124,16 +139,14 @@ export function PublicationVenue({ publication }: { publication: Publication }) 
                                 {')'}
                             </>
                         )}
+                        {item.name && ', '}
+                        <span>{item.year || publication.year}</span>
                         {item.note && (
                             <>
-                                {item.name && ', '}
-                                <span className="font-medium text-primary">
-                                    <FormattedBibTeXText nodes={item.noteNodes} fallback={item.note} />
-                                </span>
+                                {' '}
+                                <FormattedBibTeXText nodes={item.noteNodes} fallback={item.note} />
                             </>
                         )}
-                        {(item.name || item.note) && ', '}
-                        <span>{item.year || publication.year}</span>
                     </p>
                 ))}
             </div>
@@ -186,7 +199,7 @@ export function PublicationLinks({ publication }: { publication: Publication }) 
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-[4px] px-2 py-1 font-mono text-xs text-neutral-500 transition-colors hover:bg-link-soft hover:text-primary"
+                        className="inline-flex items-center gap-1.5 rounded-[4px] border border-rule px-2 py-1 font-mono text-xs text-neutral-500 transition-colors hover:border-neutral-400 hover:bg-link-soft hover:text-primary dark:hover:border-neutral-500"
                     >
                         <Icon className="h-3.5 w-3.5" aria-hidden={true} />
                         {link.label}

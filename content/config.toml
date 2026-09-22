@@ -12,12 +12,12 @@ avatar = "/images/me_v2.png"
 
 [social]
 email = "bhpak@umd.edu"
-location = "Daejeon, Republic of Korea"
-location_url = "https://maps.app.goo.gl/UDcczVBM8Kp2APpm8"
+location = "College Park, MD"
+location_url = "https://www.google.com/maps/search/?api=1&query=College+Park%2C+MD"
 location_details = [
-  "Daejeon, Republic of Korea"
+  "College Park, MD"
 ]
-timezone = "Asia/Seoul"
+timezone = "America/New_York"
 google_scholar = "https://scholar.google.com/citations?user=2dyH0ZQAAAAJ"
 github = "https://github.com/ByeongHyunPak"
 linkedin = "https://www.linkedin.com/in/byeonghyun-pak-172a9723a/"

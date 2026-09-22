@@ -40,7 +40,7 @@ function formatLocalTime(timeZone: string) {
 export default function Profile({ author, social, introContent }: ProfileProps) {
     const tooltipId = useId();
     const [localTime, setLocalTime] = useState<string | null>(null);
-    const timeZone = social.timezone || 'Asia/Seoul';
+    const timeZone = social.timezone || 'America/New_York';
     const socialLinks = [
         ...(social.email ? [{
             name: 'email',
@@ -151,7 +151,7 @@ export default function Profile({ author, social, introContent }: ProfileProps) 
                         );
                     })}
                     <a
-                        href="/cv_BHPak_main.pdf"
+                        href="/Byeonghyun Pak - cv.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 rounded-[4px] px-2 py-1 text-neutral-500 transition-colors hover:bg-link-soft hover:text-primary"

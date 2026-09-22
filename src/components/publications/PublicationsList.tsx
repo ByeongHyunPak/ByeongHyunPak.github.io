@@ -71,25 +71,34 @@ export default function PublicationsList({ config, publications, embedded = fals
     const messages = useMessages();
     const sections = useMemo(() => groupPublications(publications), [publications]);
 
-    const renderPublication = (pub: Publication) => (
-        <div
+    const renderPublication = (pub: Publication, index: number) => (
+        <motion.article
             key={pub.id}
-            className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.28) }}
+            className="group relative grid gap-5 py-7 sm:grid-cols-[13rem_minmax(0,1fr)] sm:gap-7 sm:py-8 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-9"
         >
-            <div className="flex flex-col gap-6 md:flex-row">
-                <PublicationPreview publication={pub} />
-                <div className="flex-grow">
-                    <PublicationTitle
-                        publication={pub}
-                        className={`${embedded ? 'text-lg' : 'text-xl'} mb-2 font-semibold leading-tight text-primary`}
-                    />
-                    <PublicationAuthors publication={pub} />
-                    <PublicationVenue publication={pub} />
-                    <PublicationMemo publication={pub} />
-                    <PublicationLinks publication={pub} />
-                </div>
+            <span
+                aria-hidden="true"
+                className="absolute left-0 top-7 h-10 w-px origin-top scale-y-0 bg-accent transition-transform duration-300 group-hover:scale-y-100 sm:top-8"
+            />
+            <PublicationPreview
+                publication={pub}
+                className="w-full max-w-[24rem] sm:w-52 lg:w-[17rem]"
+                imageClassName="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.025]"
+            />
+            <div className="min-w-0 self-center">
+                <PublicationTitle
+                    publication={pub}
+                    className={`${embedded ? 'text-lg' : 'text-xl lg:text-[1.35rem]'} mb-2 font-serif font-semibold leading-[1.25] text-primary transition-colors duration-200 group-hover:text-link`}
+                />
+                <PublicationAuthors publication={pub} />
+                <PublicationVenue publication={pub} />
+                <PublicationMemo publication={pub} />
+                <PublicationLinks publication={pub} />
             </div>
-        </div>
+        </motion.article>
     );
 
     return (
@@ -98,31 +107,34 @@ export default function PublicationsList({ config, publications, embedded = fals
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
         >
-            <div className={`${!embedded && sections.length > 1 ? 'pt-12' : ''} mb-8`}>
-                <h1 className={`${embedded ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary mb-4`}>{config.title}</h1>
+            <div className={`${!embedded && sections.length > 1 ? 'pt-8' : ''} mb-12 sm:mb-16`}>
+                <div>
+                    <h1 className={`${embedded ? 'text-3xl' : 'text-4xl sm:text-5xl'} font-serif font-semibold leading-none text-primary`}>
+                        {config.title}
+                    </h1>
+                </div>
             </div>
 
             {/* Publications Grid */}
-            <div className="space-y-10">
+            <div className="space-y-16">
                 {publications.length === 0 ? (
                     <div className="text-center py-12 text-neutral-500">
                         {messages.publications.noResults}
                     </div>
                 ) : embedded ? (
                     <div className="space-y-6">
-                        {publications.map((pub) => renderPublication(pub))}
+                        {publications.map((pub, index) => renderPublication(pub, index))}
                     </div>
                 ) : (
                     sections.map((section) => (
                         <section key={section.id} id={section.id} className="scroll-mt-40">
-                            <div className="mb-4 flex items-baseline gap-3">
-                                <h2 className="font-serif text-2xl font-bold text-primary">{section.title}</h2>
-                                <span className="text-sm text-neutral-500">
-                                    {section.publications.length}
-                                </span>
+                            <div className="mb-3 flex items-center gap-4">
+                                <h2 className="font-serif text-xl font-medium leading-tight text-primary sm:text-[1.4rem]">
+                                    {section.title}
+                                </h2>
                             </div>
-                            <div className="space-y-6">
-                                {section.publications.map((pub) => renderPublication(pub))}
+                            <div>
+                                {section.publications.map((pub, index) => renderPublication(pub, index))}
                             </div>
                         </section>
                     ))
