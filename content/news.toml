@@ -4,6 +4,10 @@ description = "Recent updates and research milestones."
 
 [[news]]
 date = "Sep 2026"
+content = 'Our \href{https://arxiv.org/pdf/2602.02977}{paper} was accepted to NeurIPS 2026!'
+
+[[news]]
+date = "Sep 2026"
 content = 'Our \href{https://arxiv.org/pdf/2606.12956}{paper} was accepted to CoRL 2026!'
 
 [[news]]
