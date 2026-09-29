@@ -4,28 +4,28 @@ description = "Recent updates and research milestones."
 
 [[news]]
 date = "Sep 2026"
-content = 'Our \href{https://arxiv.org/pdf/2602.02977}{paper} was accepted to NeurIPS 2026!'
+content = 'Our \href{https://arxiv.org/pdf/2602.02977}{paper} was accepted to \textbf{NeurIPS 2026}.'
 
 [[news]]
 date = "Sep 2026"
-content = 'Our \href{https://arxiv.org/pdf/2606.12956}{paper} was accepted to CoRL 2026!'
+content = 'Our \href{https://arxiv.org/pdf/2606.12956}{paper} was accepted to \textbf{CoRL 2026} and selected for a \textcolor{red}{Spotlight}!'
 
 [[news]]
 date = "Aug 2026"
-content = 'I started my PhD at UMD!'
+content = 'I started my PhD journey at UMD, working with \href{https://furong-huang.com/}{Prof. Furong Huang}!'
 
 [[news]]
 date = "Jun 2026"
-content = 'I completed three years of mandatory military service at ADD. Grateful for my time there! 🥳'
+content = 'I completed three years of military service as a research officer at ADD.'
 
 [[news]]
 date = "Jun 2026"
-content = 'Our \href{https://xingxingzuo.github.io/MM-SpatialAI/assets/papers/submission-33-4d-latent-mapping-for-mobile-manipulation-policy-learning.pdf}{paper} received the \textcolor{red}{Best Paper Award} at the ICRA 2026 \href{https://xingxingzuo.github.io/MM-SpatialAI/}{Workshop on MM-SpatialAI}! 🎉'
+content = 'Our \href{https://xingxingzuo.github.io/MM-SpatialAI/assets/papers/submission-33-4d-latent-mapping-for-mobile-manipulation-policy-learning.pdf}{paper} received the \textcolor{red}{Best Paper Award} at the \href{https://xingxingzuo.github.io/MM-SpatialAI/}{ICRA 2026 Workshop}!'
 
 [[news]]
 date = "May 2026"
-content = 'Our \href{https://openreview.net/pdf?id=QDdHFImjpH}{paper} was accepted to ICML 2026 \href{https://sites.google.com/view/icml-ctb/home}{Workshop on CTB}.'
+content = 'Our \href{https://openreview.net/pdf?id=QDdHFImjpH}{paper} was accepted to the \href{https://sites.google.com/view/icml-ctb/home}{ICML 2026 Workshop}.'
 
 [[news]]
 date = "Mar 2026"
-content = 'Our \href{https://arxiv.org/pdf/2603.13904}{paper} was accepted to CVPR 2026 \href{https://pvuw.github.io/}{Workshop on PVUW}.'
+content = 'Our \href{https://arxiv.org/pdf/2603.13904}{paper} was accepted to the \href{https://pvuw.github.io/}{CVPR 2026 Workshop}.'

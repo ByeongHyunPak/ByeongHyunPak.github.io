@@ -6,6 +6,7 @@
 /* Default to light theme colors - no system preference detection */
 :root,
 .light {
+  --content-max-width: 880px;
   /* Light theme colors */
   --background: #ffffff;
   --foreground: #1a1a1a;

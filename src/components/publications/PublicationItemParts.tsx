@@ -70,7 +70,7 @@ export function PublicationTitle({
     className: string;
 }) {
     return (
-        <h3 className={className}>
+        <h3 className={`text-[1.0625rem] ${className}`}>
             <FormattedBibTeXText nodes={publication.titleNodes} fallback={publication.title} />
         </h3>
     );
@@ -81,7 +81,7 @@ export function PublicationAuthors({ publication }: { publication: Publication }
         <p className="mb-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-500">
             {publication.authors.map((author, index) => (
                 <span key={`${publication.id}-${author.name}-${index}`}>
-                    <span className={author.isHighlighted ? 'font-bold text-primary underline underline-offset-2' : ''}>
+                    <span className={author.isHighlighted ? 'font-bold text-neutral-800 dark:text-neutral-600 underline underline-offset-2' : ''}>
                         {author.name}
                     </span>
                     {author.isCoAuthor && <sup className="ml-0.5">*</sup>}
@@ -93,20 +93,7 @@ export function PublicationAuthors({ publication }: { publication: Publication }
     );
 }
 
-function WorkshopName({ name }: { name: string }) {
-    const match = name.match(/^((?:ICRA|ICML|CVPR) Workshop)(.*)$/);
-
-    if (!match) {
-        return <span className="italic">{name}</span>;
-    }
-
-    return (
-        <>
-            <strong className="font-bold text-primary">{match[1]}</strong>
-            <span className="italic">{match[2]}</span>
-        </>
-    );
-}
+const venueTextClassName = 'text-sm font-normal text-neutral-600 dark:text-neutral-500';
 
 export function PublicationVenue({ publication }: { publication: Publication }) {
     const venue = publication.journal || publication.conference;
@@ -115,32 +102,41 @@ export function PublicationVenue({ publication }: { publication: Publication }) 
 
     if (publication.type === 'preprint') {
         return (
-            <p className={`${marginBottom} text-sm text-neutral-600 dark:text-neutral-500`}>
+            <p className={`${marginBottom} ${venueTextClassName} italic`}>
                 <span>{publication.statusLabel || 'Preprint'}</span>
                 {publication.year && <> ({publication.year})</>}
             </p>
         );
     }
 
-    if (publication.type === 'workshop') {
-        const venues = publication.venueItems?.length
-            ? publication.venueItems
-            : [{ name: venue || '', year: publication.year }];
+    const venues = publication.venueItems?.length
+        ? publication.venueItems
+        : [{ name: venue || '', abbreviation: venueAbbreviation, year: publication.year }];
 
-        return (
-            <div className={`${marginBottom} space-y-0.5 text-sm text-neutral-600 dark:text-neutral-500`}>
-                {venues.map((item, index) => (
+    return (
+        <div className={`${marginBottom} space-y-0.5 ${venueTextClassName}`}>
+            {venues.map((item, index) => {
+                const abbreviation = item.abbreviation || getVenueAbbreviation(item.name);
+                const workshop = publication.type === 'workshop'
+                    ? item.name.match(/^(.+? Workshop)\b(.*)$/i)
+                    : null;
+
+                return (
                     <p key={`${publication.id}-venue-${index}`}>
-                        {item.name && <WorkshopName name={item.name} />}
-                        {item.abbreviation && (
-                            <>
-                                {' ('}
-                                <strong className="font-bold text-primary">{item.abbreviation}</strong>
-                                {')'}
-                            </>
-                        )}
-                        {item.name && ', '}
-                        <span>{item.year || publication.year}</span>
+                        <span className="italic">
+                            {workshop ? (
+                                <><strong className="font-bold">{workshop[1]}</strong>{workshop[2]}</>
+                            ) : (
+                                <>
+                                    {item.name}
+                                    {abbreviation && abbreviation !== item.name && (
+                                        <> (<strong className="font-bold">{abbreviation}</strong>)</>
+                                    )}
+                                </>
+                            )}
+                            {item.name && ' '}
+                            {item.year || publication.year}
+                        </span>
                         {item.note && (
                             <>
                                 {' '}
@@ -148,24 +144,9 @@ export function PublicationVenue({ publication }: { publication: Publication }) 
                             </>
                         )}
                     </p>
-                ))}
-            </div>
-        );
-    }
-
-    return (
-        <p className={`${marginBottom} text-sm text-neutral-600 dark:text-neutral-500`}>
-            {venue && <span className="italic">{venue}</span>}
-            {venueAbbreviation && (
-                <>
-                    {' ('}
-                    <strong className="font-bold text-primary">{venueAbbreviation}</strong>
-                    {')'}
-                </>
-            )}
-            {venue && ', '}
-            <span>{publication.year}</span>
-        </p>
+                );
+            })}
+        </div>
     );
 }
 
@@ -175,7 +156,7 @@ export function PublicationMemo({ publication }: { publication: Publication }) {
     }
 
     return (
-        <p className="mb-3 text-sm text-neutral-600 dark:text-neutral-500">
+        <p className={`mb-3 ${venueTextClassName}`}>
             <FormattedBibTeXText nodes={publication.memoNodes} fallback={publication.memo} />
         </p>
     );

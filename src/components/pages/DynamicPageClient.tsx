@@ -33,10 +33,8 @@ export default function DynamicPageClient({ dataByLocale, defaultLocale }: Dynam
     return null;
   }
 
-  const pageWidth = pageData.type === 'publication' ? 'max-w-5xl' : 'max-w-4xl';
-
   return (
-    <div className={`${pageWidth} mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16`}>
+    <div className="mx-auto max-w-[var(--content-max-width)] px-5 py-12 sm:px-7 lg:py-16">
       {pageData.type === 'publication' && (
         <PublicationsList config={pageData.config} publications={pageData.publications} />
       )}

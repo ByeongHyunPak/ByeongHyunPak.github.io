@@ -77,7 +77,7 @@ export default function PublicationsList({ config, publications, embedded = fals
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.28) }}
-            className="group relative grid gap-5 py-7 sm:grid-cols-[13rem_minmax(0,1fr)] sm:gap-7 sm:py-8 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-9"
+            className="group relative grid items-start gap-5 py-7 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-7 sm:py-8 lg:grid-cols-[14rem_minmax(0,1fr)]"
         >
             <span
                 aria-hidden="true"
@@ -85,13 +85,13 @@ export default function PublicationsList({ config, publications, embedded = fals
             />
             <PublicationPreview
                 publication={pub}
-                className="w-full max-w-[24rem] sm:w-52 lg:w-[17rem]"
+                className="w-full max-w-[22rem] sm:w-48 lg:w-56"
                 imageClassName="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.025]"
             />
-            <div className="min-w-0 self-center">
+            <div className="min-w-0 self-start">
                 <PublicationTitle
                     publication={pub}
-                    className={`${embedded ? 'text-lg' : 'text-xl lg:text-[1.35rem]'} mb-2 font-serif font-semibold leading-[1.25] text-primary transition-colors duration-200 group-hover:text-link`}
+                    className={`mb-2 font-sans font-semibold leading-[1.25] text-primary transition-colors duration-200 group-hover:text-link`}
                 />
                 <PublicationAuthors publication={pub} />
                 <PublicationVenue publication={pub} />
@@ -107,16 +107,16 @@ export default function PublicationsList({ config, publications, embedded = fals
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
         >
-            <div className={`${!embedded && sections.length > 1 ? 'pt-8' : ''} mb-12 sm:mb-16`}>
+            <div className={`${!embedded && sections.length > 1 ? 'pt-8' : ''} mb-6 sm:mb-8`}>
                 <div>
-                    <h1 className={`${embedded ? 'text-3xl' : 'text-4xl sm:text-5xl'} font-serif font-semibold leading-none text-primary`}>
+                    <h1 className={embedded ? 'text-3xl font-serif font-semibold leading-none text-primary' : 'mb-4 font-serif text-4xl font-bold text-primary'}>
                         {config.title}
                     </h1>
                 </div>
             </div>
 
             {/* Publications Grid */}
-            <div className="space-y-16">
+            <div className="space-y-8">
                 {publications.length === 0 ? (
                     <div className="text-center py-12 text-neutral-500">
                         {messages.publications.noResults}

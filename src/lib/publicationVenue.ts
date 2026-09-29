@@ -1,4 +1,6 @@
 const venueAbbreviations: Record<string, string> = {
+  'Conference on Robot Learning': 'CoRL',
+  'Conference on Neural Information Processing Systems': 'NeurIPS',
   'Advances in Neural Information Processing Systems': 'NeurIPS',
   'European Conference on Computer Vision': 'ECCV',
   'IEEE/CVF Conference on Computer Vision and Pattern Recognition': 'CVPR',

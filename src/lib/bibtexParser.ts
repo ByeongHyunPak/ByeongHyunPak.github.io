@@ -264,17 +264,18 @@ function splitRawSemicolonList(value?: string, keepEmpty = false): string[] {
 }
 
 function parseVenueItems(tags: Record<string, string>, type: PublicationType, year: number): Publication['venueItems'] {
-  if (type !== 'workshop') {
-    return undefined;
-  }
-
-  const names = splitSemicolonList(tags.workshops || tags.workshop || tags.venues);
-  const notes = splitRawSemicolonList(tags.workshopnotes || tags.venuenotes, true)
-    .map((note) => parseBibTeXInline(note));
+  const isWorkshop = type === 'workshop';
+  const names = splitSemicolonList(isWorkshop
+    ? tags.workshops || tags.workshop || tags.venues
+    : tags.venues);
+  const notes = splitRawSemicolonList(isWorkshop
+    ? tags.workshopnotes || tags.venuenotes
+    : tags.venuenotes, true).map((note) => parseBibTeXInline(note));
 
   if (names.length === 0) {
-    const fallbackName = cleanBibTeXString(tags.booktitle || tags.journal);
-    return fallbackName ? [{ name: fallbackName, year }] : undefined;
+    const fallbackName = cleanBibTeXString(tags.journal || tags.booktitle);
+    if (!fallbackName) return undefined;
+    names.push(fallbackName);
   }
 
   return names.map((name, index) => {
@@ -282,6 +283,7 @@ function parseVenueItems(tags: Record<string, string>, type: PublicationType, ye
 
     return {
       name,
+      ...(!isWorkshop && names.length === 1 ? { abbreviation: cleanBibTeXString(tags.venue) } : {}),
       ...(note?.plainText ? { note: note.plainText, noteNodes: note.nodes } : {}),
       year,
     };

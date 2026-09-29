@@ -59,7 +59,7 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
     ?.sections.find((section) => section.type === 'markdown' && section.content);
 
   return (
-    <div className="mx-auto min-h-screen max-w-[950px] bg-background px-5 py-10 sm:px-7 sm:py-16">
+    <div className="mx-auto min-h-screen max-w-[var(--content-max-width)] bg-background px-5 py-10 sm:px-7 sm:py-16">
       <Profile
         author={data.author}
         social={data.social}

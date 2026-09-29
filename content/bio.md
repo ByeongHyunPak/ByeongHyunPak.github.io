@@ -1,6 +1,5 @@
-Hi! I'm Byeonghyun, a first-year Ph.D. student in Computer Science at the [University of Maryland](https://www.cs.umd.edu/), advised by [Prof. Furong Huang](https://furong-huang.com).
-Previously, I served as a research officer at the [Agency for Defense Development (ADD)](https://www.add.re.kr/eps), working on vision-language models and visual representation learning.
-I received my bachelor’s degree from [Daegu Gyeongbuk Institute of Science and Technology (DGIST)](https://www.dgist.ac.kr).
+Hi! I'm Byeonghyun, a first-year PhD student in the Department of Computer Science at the [University of Maryland (UMD)](https://www.cs.umd.edu/), advised by [Prof. Furong Huang](https://furong-huang.com).
 
-My research goal is to build robots that can reason over long-horizon, complex tasks and generalize robustly to real-world environments.
-To this end, I develop structured state representations for robotic perception, policy learning, and long-horizon planning.
+Before joining UMD, I served as a research officer at the [Agency for Defense Development (ADD)](https://www.add.re.kr/eps), where I worked on vision-language models and visual representation learning. I received my Bachelor’s degree from [Daegu Gyeongbuk Institute of Science and Technology (DGIST)](https://www.dgist.ac.kr).
+
+My research goal is to build robots that can perceive, reason, and act over long horizons while generalizing robustly to real-world environments. I am particularly interested in active world modeling and persistent memory for embodied agents, with a focus on open-world mobile manipulation.

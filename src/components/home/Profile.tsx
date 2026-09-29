@@ -118,16 +118,16 @@ export default function Profile({ author, social, introContent }: ProfileProps) 
 
                 {social.email && (
                     <p className="mt-3 text-neutral-700 dark:text-neutral-500">
-                        Please feel free to reach out to me at {' '}
+                        Feel free to reach out to me via {' '}
                         <a
                             href={`mailto:${social.email}`}
                             className="text-link hover:text-link-hover underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current"
                         >
-                            {social.email}
+                            my email
                         </a>
                         {localTime && (
                             <span className="text-neutral-500">
-                                {' '}({`it's ${localTime} for me right now`})
+                                {' '}({`it's ${localTime} for me`})
                             </span>
                         )}
                         .

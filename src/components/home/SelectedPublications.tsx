@@ -48,7 +48,7 @@ export default function SelectedPublications({ publications, title }: SelectedPu
                             initial={{ opacity: 0, y: 16 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.35, delay: 0.08 * index }}
-                            className="group relative grid gap-5 py-4 sm:grid-cols-[13rem_minmax(0,1fr)] sm:gap-7 sm:py-5 md:grid-cols-[15rem_minmax(0,1fr)]"
+                            className="group relative grid items-start gap-5 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-7 sm:py-5 md:grid-cols-[14rem_minmax(0,1fr)]"
                         >
                             <span
                                 aria-hidden="true"
@@ -56,13 +56,13 @@ export default function SelectedPublications({ publications, title }: SelectedPu
                             />
                             <PublicationPreview
                                 publication={pub}
-                                className="w-full max-w-[24rem] sm:w-52 md:w-60"
+                                className="w-full max-w-[22rem] sm:w-48 md:w-56"
                                 imageClassName="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.025]"
                             />
-                            <div className="min-w-0 self-center">
+                            <div className="min-w-0 self-start">
                                 <PublicationTitle
                                     publication={pub}
-                                    className="mb-2 font-serif text-lg font-semibold leading-[1.25] text-primary transition-colors duration-200 group-hover:text-link"
+                                    className="mb-2 font-sans font-semibold leading-[1.25] text-primary transition-colors duration-200 group-hover:text-link"
                                 />
                                 <PublicationAuthors publication={pub} />
                                 <PublicationVenue publication={pub} />
