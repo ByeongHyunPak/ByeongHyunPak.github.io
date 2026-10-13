@@ -162,13 +162,14 @@ export default function Profile({ author, social, introContent }: ProfileProps) 
                 </nav>
             </div>
 
-            <figure className="order-first sm:order-none">
-                <div className="h-[118px] w-[118px] overflow-hidden rounded-full bg-neutral-100 ring-1 ring-neutral-200 sm:h-[200px] sm:w-[200px] dark:bg-neutral-800 dark:ring-neutral-800">
+            <figure className="profile-portrait">
+                <div className="profile-photo">
                     <Image
                         src={author.avatar}
                         alt={author.name}
                         width={240}
                         height={240}
+                        sizes="(max-width: 639px) 160px, (max-width: 999px) 24vw, 240px"
                         className="h-full w-full object-cover object-[32%_center]"
                         priority
                     />
